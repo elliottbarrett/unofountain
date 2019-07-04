@@ -61,7 +61,7 @@ void readValue() {
   val = (val << 1) | (digitalRead(rxData2Pin) == HIGH ? 1 : 0);
   val = (val << 1) | (digitalRead(rxData1Pin) == HIGH ? 1 : 0);
   val = (val << 1) | (digitalRead(rxData0Pin) == HIGH ? 1 : 0);
-  
+
   switch (mode) {
     case MODE_RED:
       rVal = val;
@@ -79,6 +79,7 @@ void readValue() {
 }
 
 void printState() {
+  
   Serial.print("(Slave) R: ");
   Serial.print(rVal);
   Serial.print(", G: ");
@@ -104,5 +105,5 @@ void loop() {
     lastPrint = time;
     printState();
   }
-  delay(30);
+//  delay();
 }
